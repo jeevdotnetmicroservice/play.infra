@@ -17,6 +17,11 @@ az group create --name $appname --location eastus
 
 ## Creating the Cosmos DB account
 ```powershell
-$cosmosDbName="jeevplayeconomy"
-az cosmosdb create --name $cosmosDbName --resource-group $appname --kind MongoDB --enable-free-tier
+$resourceName="jeevplayeconomy"
+az cosmosdb create --name $resourceName --resource-group $appname --kind MongoDB --enable-free-tier
+```
+
+## Creating the Service Bus namespace
+```powershell
+az servicebus namespace create --name $resourceName --resource-group $appname --sku Standard
 ```
