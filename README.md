@@ -11,17 +11,22 @@ dotnet nuget add source --username jeev --password $gh_pat --store-password-in-c
 
 ## Creating the Azure resource group
 ```powershell
-$appname="playeconomy"
-az group create --name $appname --location eastus
+$rgname="playeconomy"
+az group create --name $rgname --location eastus
 ```
 
 ## Creating the Cosmos DB account
 ```powershell
-$resourceName="jeevplayeconomy"
-az cosmosdb create --name $resourceName --resource-group $appname --kind MongoDB --enable-free-tier
+$rpname="jeevplayeconomy"
+az cosmosdb create --name $rpname --resource-group $rgname --kind MongoDB --enable-free-tier
 ```
 
 ## Creating the Service Bus namespace
 ```powershell
-az servicebus namespace create --name $resourceName --resource-group $appname --sku Standard
+az servicebus namespace create --name $rpname --resource-group $rgname --sku Standard
+```
+
+## Creating the Container Registry
+```powershell
+az acr create --name $rpname --resource-group $rgname --sku Basic
 ```
