@@ -40,3 +40,8 @@ az aks create -n $rpname -g $rgname --node-vm-size Standard_B2s --node-count 2 -
 
 az aks get-credentials --name $rpname --resource-group $rgname
 ```
+
+## Creating the Azure Key Vault
+```powershell
+az keyvault create -n $rpname -g $rgname
+```
