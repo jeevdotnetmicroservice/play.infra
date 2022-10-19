@@ -58,5 +58,10 @@ $namespace="emissary"
 helm install emissary-ingress datawire/emissary-ingress --set service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$rpname -n $namespace --create-namespace
 
 kubectl rollout status deployment/emissary-ingress -n $namespace  -w
+```
 
+## Configuring Emissary-ingress routing
+```powershell
+kubectl apply -f .\emissary-ingress\listener.yaml -n $namespace
+kubectl apply -f .\emissary-ingress\mappings.yaml -n $namespace
 ```
