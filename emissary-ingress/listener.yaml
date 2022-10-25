@@ -2,11 +2,11 @@ apiVersion: getambassador.io/v3alpha1
 kind: Listener
 metadata:
   name: http-listener
-spec:
+spec:   
   port: 8080
   protocol: HTTP
-  securityModel: XFP # X-Forwarded-Proto
-  hostBinding:
+  securityModel: XFP # X-Forwarded-Proto 
+  hostBinding:  
     namespace:
       from: SELF
 
@@ -15,10 +15,10 @@ apiVersion: getambassador.io/v3alpha1
 kind: Listener
 metadata:
   name: https-listener
-spec:
+spec:   
   port: 8443
   protocol: HTTPS
-  securityModel: XFP # X-Forwarded-Proto
-  hostBinding:
+  securityModel: XFP
+  hostBinding:  
     namespace:
       from: SELF

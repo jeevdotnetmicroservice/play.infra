@@ -9,4 +9,3 @@ spec:
     kind: ClusterIssuer
   dnsNames:
     - "jeevplayeconomy.eastus.cloudapp.azure.com"
-

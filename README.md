@@ -31,7 +31,7 @@ az servicebus namespace create --name $rpname --resource-group $rgname --sku Sta
 az acr create --name $rpname --resource-group $rgname --sku Basic
 ```
 
-## Creating the AKS Registry
+## Creating the AKS cluster
 ```powershell
 az feature register --name EnablePodIdentityPreview --namespace Microsoft.ContainerService
 az extension add --name aks-preview
