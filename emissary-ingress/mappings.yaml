@@ -16,3 +16,16 @@ spec:
   hostname: jeevplayeconomy.eastus.cloudapp.azure.com
   prefix: /catalog-svc/
   service: catalog-service.catalog
+
+---
+apiVersion: getambassador.io/v3alpha1
+kind: Mapping
+metadata:
+  name: trading-mapping
+spec:
+  hostname: jeevplayeconomy.eastus.cloudapp.azure.com
+  prefix: /trading-svc/
+  service: trading-service.catalog
+  allow_upgrade:
+  - websocket
+
