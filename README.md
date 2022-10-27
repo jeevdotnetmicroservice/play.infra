@@ -89,3 +89,16 @@ kubectl apply -f .\emissary-ingress\tls-certificate.yaml -n $namespace
 ```powershell
 kubectl apply -f .\emissary-ingress\host.yaml -n $namespace
 ```
+
+## Packaging and publishing the microservice Helm chart
+```powershell
+helm package .\helm\microservice
+
+$helmUser=[guid]::Empty.Guid
+$helmPassword = az acr login --name $rpname --expose-token --output tsv --query accessToken
+
+$env:HELM_EXPERIMENTAL_OCI=1
+helm registry login "$rpname.azurecr.io" --username $helmUser --password $helmPassword
+
+helm push microservice-0.1.0.tgz oci://$rpname.azurecr.io/helm
+```
