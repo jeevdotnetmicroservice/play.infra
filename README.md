@@ -110,3 +110,11 @@ az role assignment create --assignee $appId --role "AcrPush" --resource-group $r
 az role assignment create --assignee $appId --role "Azure Kubernetes Service Cluster User Role" --resource-group $rgname
 az role assignment create --assignee $appId --role "Azure Kubernetes Service Contributor Role" --resource-group $rgname
 ```
+
+### Deploying Seq to AKS
+```powershell
+helm repo add datalust https://helm.datalust.co
+helm repo update
+
+helm install seq datalust/seq -n observability --create-namespace
+```
