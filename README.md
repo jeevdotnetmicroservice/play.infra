@@ -126,3 +126,11 @@ helm repo update
 
 helm upgrade jaeger jaegertracing/jaeger --values .\jaeger\values.yaml -n observability --install
 ```
+
+### Deploying Prometheus and Grafana
+```powershell
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+
+helm upgrade prometheus prometheus-community/kube-prometheus-stack --values .\prometheus\values.yaml -n observability --install
+```
