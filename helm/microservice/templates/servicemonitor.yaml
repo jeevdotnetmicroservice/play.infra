@@ -1,14 +1,12 @@
-apiVerson: monitoring.coreos.com/v1
-kind: Service
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
 metadata:
-  name: "{{.Values.microserviceName}}-service"
-  labels:
-    appType: {{.Chart.Name}}
+    name: "{{.Values.microserviceName}}-servicemonitor"
+    labels:
+        appType: {{.Chart.Name}}
 spec:
-  type: {{.Values.service.type}}
-  selector:
-    app: {{.Values.microserviceName}}
-  ports:
-    - name: http
-      port: {{.Values.service.port}}
-      targetPort: {{.Values.container.port}}
+    selector:
+        matchLabels:
+            appType: {{.Chart.Name}}
+    endpoints:
+        - port: http
