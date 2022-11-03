@@ -100,7 +100,7 @@ $helmPassword = az acr login --name $rpname --expose-token --output tsv --query 
 $env:HELM_EXPERIMENTAL_OCI=1
 helm registry login "$rpname.azurecr.io" --username $helmUser --password $helmPassword
 
-helm push microservice-0.1.2.tgz oci://$rpname.azurecr.io/helm
+helm push microservice-0.1.3.tgz oci://$rpname.azurecr.io/helm
 ```
 
 ## Create GitHub service principal
